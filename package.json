@@ -1,0 +1,18 @@
+{
+  "title": "ShowMap",
+  "name": "showmap",
+  "version": "0.0.1",
+  "description": "Open another map from the current map view.",
+  "main": "index.js",
+  "author": "Markus Heidelberg",
+  "permissions": {
+    "private-browsing": true
+  },
+  "engines": {
+    "firefox": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}

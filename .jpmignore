@@ -1,0 +1,11 @@
+# project files
+/.git/
+/.gitignore
+/.jpmignore
+/test/
+
+# created by jpm
+*.xpi
+
+# created by JSDoc
+/out/

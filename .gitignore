@@ -1,0 +1,5 @@
+# created by jpm
+*.xpi
+
+# created by JSDoc
+/out/
