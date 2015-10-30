@@ -8,6 +8,12 @@
   "permissions": {
     "private-browsing": true
   },
+  "preferences": [{
+    "name": "destmaps",
+    "title": "Destination maps",
+    "description": "GeoHack compatible URIs in an array of objects",
+    "type": "string"
+  }],
   "engines": {
     "firefox": ">=38.0a1"
   },

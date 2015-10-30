@@ -13,16 +13,35 @@
  * @property {String} templateurl - template URL with variables
  */
 
+var preferences = require("sdk/simple-prefs");
 var tabs = require("sdk/tabs");
 var contextMenu = require("sdk/context-menu");
 
 var geourl = require("./lib/geourl.js");
 
+/**
+ * Set default destination maps in the preferences if not yet defined or empty.
+ *
+ * The defaults will be set on Add-On loading
+ * - after first installation
+ * - after manual deletion in about:config
+ *
+ * This function is needed because preferences of type "object" are not
+ * supported by the simple-prefs system and using the stringified
+ * representation in packages.json would be pretty ugly.
+ */
+function initDestMaps()
+{
+	if (!preferences.prefs.destmaps) {
+		preferences.prefs.destmaps = JSON.stringify(require("./destmaps.json"));
+	}
+}
+
 /* items always visible for simplicity */
 
 function createContextMenu()
 {
-	var destinationUrls = require("./destmaps.json");
+	var destinationUrls = JSON.parse(preferences.prefs.destmaps);
 
 	for (var i = 0; i < destinationUrls.length; i++) {
 		contextMenu.Item({
@@ -43,6 +62,8 @@ function createContextMenu()
 
 function main(options, callbacks)
 {
+	initDestMaps();
+
 	createContextMenu();
 }
 
