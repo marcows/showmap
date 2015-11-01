@@ -1,18 +1,22 @@
 [
 {
 	"name": "OpenStreetMap",
-	"templateurl": "http://openstreetmap.org/#map={osmzoom}/{latdegdec}/{londegdec}"
+	"templateurl": "http://openstreetmap.org/#map={osmzoom}/{latdegdec}/{londegdec}",
+	"enabled": true
 },
 {
 	"name": "OpenStreetMap Marker",
-	"templateurl": "http://openstreetmap.org/?mlat={latdegdec}&mlon={londegdec}#map={osmzoom}/{latdegdec}/{londegdec}"
+	"templateurl": "http://openstreetmap.org/?mlat={latdegdec}&mlon={londegdec}#map={osmzoom}/{latdegdec}/{londegdec}",
+	"enabled": false
 },
 {
 	"name": "Google Maps",
-	"templateurl": "http://www.google.de/maps/@{latdegdec},{londegdec},{osmzoom}z"
+	"templateurl": "http://www.google.de/maps/@{latdegdec},{londegdec},{osmzoom}z",
+	"enabled": true
 },
 {
 	"name": "Map Compare",
-	"templateurl": "http://tools.geofabrik.de/mc/#{osmzoom}/{latdegdec}/{londegdec}&num=2&mt0=mapnik&mt1=here-satellite"
+	"templateurl": "http://tools.geofabrik.de/mc/#{osmzoom}/{latdegdec}/{londegdec}&num=2&mt0=mapnik&mt1=here-satellite",
+	"enabled": true
 }
 ]
