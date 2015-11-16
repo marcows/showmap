@@ -3,6 +3,7 @@
 /.gitignore
 /.jpmignore
 /test/
+/data/icon.xcf
 
 # created by jpm
 *.xpi
