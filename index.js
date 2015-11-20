@@ -23,8 +23,6 @@
 
 var preferences = require("sdk/simple-prefs");
 var tabs = require("sdk/tabs");
-var contextMenu = require("sdk/context-menu");
-var contextMenuitems = [];
 
 var geourl = require("./lib/geourl.js");
 
@@ -78,41 +76,6 @@ function createAndShowEditmaps()
 	});
 
 	editmapsPanel.show();
-}
-
-// recreate the context menu when preference of destination URLs changed
-preferences.on("destmaps", function() {
-	createContextMenu();
-});
-
-/* items always visible for simplicity */
-
-function createContextMenu()
-{
-	var destinationUrls = JSON.parse(preferences.prefs.destmaps);
-
-	// first clear existing context menu items
-	contextMenuitems.forEach(function(element) {
-		element.destroy();
-	});
-
-	for (var i = 0; i < destinationUrls.length; i++) {
-		if (destinationUrls[i].enabled) {
-			contextMenuitems[i] = contextMenu.Item({
-				label: destinationUrls[i].name,
-				data: destinationUrls[i].templateurl,
-				contentScript: 'self.on("click", function (node, data) {' +
-						'  self.postMessage(data);' +
-						'});',
-				onMessage: function (geohackurl) {
-					var coords = geourl.parse(tabs.activeTab.url);
-					if (coords) {
-						tabs.open(geourl.decode(geohackurl, coords));
-					}
-				}
-			});
-		}
-	}
 }
 
 /**
@@ -194,8 +157,6 @@ function main(options, callbacks)
 	initDestMaps();
 
 	preferences.on("editmaps", createAndShowEditmaps);
-
-	createContextMenu();
 
 	createShowmapButton();
 	createUsemapsPanel();
