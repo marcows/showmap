@@ -3,6 +3,7 @@
   "name": "showmap",
   "version": "0.0.1",
   "description": "Open another map from the current map view.",
+  "icon": "resource://@showmap/data/icon-32.png",
   "main": "index.js",
   "author": "Markus Heidelberg",
   "permissions": {
