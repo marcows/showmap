@@ -68,12 +68,31 @@ function createAndShowEditmaps()
 	});
 
 	editmapsPanel.on("hide", function() {
+		tabs.removeListener("deactivate", hideEditmapsPanel);
+		tabs.removeListener("close", hideEditmapsPanel);
+
 		editmapsPanel.destroy();
 	});
 
 	editmapsPanel.port.on("destmaps", function(newDestMaps) {
 		preferences.prefs.destmaps = JSON.stringify(newDestMaps);
 	});
+
+	function hideEditmapsPanel()
+	{
+		// Already remove the listeners here to avoid triggering the
+		// second event ("deactivate" and "close" both occur when
+		// closing a window) before the "hide" event handler and risk
+		// accessing the destroyed panel.
+		tabs.removeListener("deactivate", hideEditmapsPanel);
+		tabs.removeListener("close", hideEditmapsPanel);
+
+		editmapsPanel.hide();
+	}
+
+	// The panel should vanish when leaving the about:addon page via key shortcut.
+	tabs.on("deactivate", hideEditmapsPanel);
+	tabs.on("close", hideEditmapsPanel);
 
 	editmapsPanel.show();
 }
