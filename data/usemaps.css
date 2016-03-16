@@ -1,0 +1,21 @@
+#listcontainer {
+	list-style-type: none;
+	padding: 0px;
+}
+
+.maplink {
+	display: block;
+	text-decoration: none;
+}
+
+.maplink:link, .maplink:visited {
+	color: MenuText;
+	background-color: Menu;
+	cursor: default;
+}
+
+.maplink:hover {
+	color: -moz-MenuHoverText;
+	background-color: -moz-MenuHover;
+	cursor: default;
+}

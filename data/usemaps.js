@@ -44,6 +44,7 @@ function addLink(name, uri)
 
 	link.textContent = name;
 	link.href = uri;
+	link.className = "maplink";
 	link.addEventListener("click", handleLinkClick, false);
 
 	item.appendChild(link);
