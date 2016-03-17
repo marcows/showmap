@@ -176,8 +176,8 @@ function createUsemapsPanel()
 	});
 
 	usemapsPanel.port.on("pagesize", function(w, h) {
-		// The width was reduced by 16 px on each change, so keep the default.
-		usemapsPanel.resize(usemapsPanel.width, h + 30);
+		// Reducing the width does not work, only increasing, so keep the default.
+		usemapsPanel.resize(usemapsPanel.width, h);
 	});
 }
 

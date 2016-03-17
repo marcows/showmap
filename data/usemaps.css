@@ -1,11 +1,17 @@
+body {
+	margin: 0px;
+}
+
 #listcontainer {
 	list-style-type: none;
-	padding: 0px;
+	padding: 3px;
+	margin: 0px;
 }
 
 .maplink {
 	display: block;
 	text-decoration: none;
+	padding: 1px 3px;
 }
 
 .maplink:link, .maplink:visited {
