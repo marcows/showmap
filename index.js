@@ -176,8 +176,7 @@ function createUsemapsPanel()
 	});
 
 	usemapsPanel.port.on("pagesize", function(w, h) {
-		// Reducing the width does not work, only increasing, so keep the default.
-		usemapsPanel.resize(usemapsPanel.width, h);
+		usemapsPanel.resize(w, h);
 	});
 }
 

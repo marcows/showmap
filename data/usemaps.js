@@ -74,7 +74,7 @@ function createLinks(destMaps)
 	}
 
 	// Post new size
-	self.port.emit("pagesize", document.body.scrollWidth, document.body.scrollHeight);
+	self.port.emit("pagesize", listcontainer.scrollWidth, listcontainer.scrollHeight);
 }
 
 self.port.on("destmaps", createLinks);
