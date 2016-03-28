@@ -26,6 +26,18 @@ var tabs = require("sdk/tabs");
 
 var geourl = require("./lib/geourl.js");
 
+var iconsDisabled = {
+	"16": "./icon-disabled-16.png",
+	"32": "./icon-disabled-32.png",
+	"64": "./icon-disabled-64.png"
+};
+
+var iconsEnabled = {
+	"16": "./icon-16.png",
+	"32": "./icon-32.png",
+	"64": "./icon-64.png"
+};
+
 var showmapButton;
 var usemapsPanel;
 
@@ -111,11 +123,8 @@ function createShowmapButton()
 	showmapButton = ToggleButton({
 		id: "showmapButton",
 		label: "Show map",
-		icon: {
-			"16": "./icon-16.png",
-			"32": "./icon-32.png",
-			"64": "./icon-64.png"
-		}
+		disabled: true,
+		icon: iconsDisabled
 	});
 
 	// Show or hide the panel when clicking the button.
@@ -171,6 +180,46 @@ function createUsemapsPanel()
 	});
 }
 
+function updateShowmapButtonState()
+{
+	if (geourl.parse(tabs.activeTab.url)) {
+		showmapButton.disabled = false;
+		showmapButton.icon = iconsEnabled;
+	} else {
+		showmapButton.disabled = true;
+		showmapButton.icon = iconsDisabled;
+		usemapsPanel.hide();
+	}
+}
+
+/*
+ * Setup of tab related events to control the showmap toggle button
+ * enabled/disabled state.
+ */
+function setupShowmapButtonTabEvents()
+{
+	// to detect tab or window switch
+	tabs.on("activate", function(tab) {
+		if (tab.readyState === "interactive" || tab.readyState === "complete") {
+			updateShowmapButtonState();
+		}
+	});
+
+	// to detect DOM is ready after navigation
+	tabs.on("ready", function(tab) {
+		if (tab === tabs.activeTab) {
+			updateShowmapButtonState();
+		}
+	});
+
+	// to detect page loaded from cache
+	tabs.on("pageshow", function(tab) {
+		if (tab === tabs.activeTab) {
+			updateShowmapButtonState();
+		}
+	});
+}
+
 function main(options, callbacks)
 {
 	initDestMaps();
@@ -179,6 +228,7 @@ function main(options, callbacks)
 
 	createShowmapButton();
 	createUsemapsPanel();
+	setupShowmapButtonTabEvents();
 }
 
 exports.main = main;
