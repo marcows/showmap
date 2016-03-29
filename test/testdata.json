@@ -1,0 +1,104 @@
+[
+{
+	"url": "http://www.openstreetmap.org/#map=5/51.500/-0.100",
+	"coords": {
+		"osmzoom": 5,
+		"latdegdec": 51.5,
+		"londegdec": -0.1
+	}
+},
+{
+	"url": "http://tools.geofabrik.de/mc/#5/19.2325/40.6165&num=2&mt0=mapnik&mt1=google-map",
+	"templateurl": "http://tools.geofabrik.de/mc/#{osmzoom}/{latdegdec}/{londegdec}&num=2&mt0=mapnik&mt1=google-map",
+	"coords": {
+		"osmzoom": 5,
+		"latdegdec": 19.2325,
+		"londegdec": 40.6165
+	}
+},
+{
+	"url": "https://www.google.com/maps/@37.0625,-95.677068,4z",
+	"templateurl": "https://www.google.com/maps/@{latdegdec},{londegdec},{osmzoom}z",
+	"coords": {
+		"osmzoom": 4,
+		"latdegdec": 37.0625,
+		"londegdec": -95.677068
+	}
+},
+{
+	"url": "https://www.google.com/maps/@37.0625,-95.677068,4z",
+	"templateurl": "https://www.google.com/maps/@%7Blatdegdec%7D,%7Blondegdec%7D,%7Bosmzoom%7Dz",
+	"templateurldesc": "escaped curly braces in template URL",
+	"coords": {
+		"osmzoom": 4,
+		"latdegdec": 37.0625,
+		"londegdec": -95.677068
+	}
+},
+{
+	"url": "https://www.google.com/maps/@37.0625,-95.677068,4.25z",
+	"urldesc": "proper rounding of zoom",
+	"coords": {
+		"osmzoom": 4,
+		"latdegdec": 37.0625,
+		"londegdec": -95.677068
+	}
+},
+{
+	"url": "https://www.google.com/maps/@37.0625,-95.677068,4.5z",
+	"urldesc": "proper rounding of zoom",
+	"coords": {
+		"osmzoom": 4,
+		"latdegdec": 37.0625,
+		"londegdec": -95.677068
+	}
+},
+{
+	"url": "https://www.google.com/maps/@37.0625,-95.677068,4.75z",
+	"urldesc": "proper rounding of zoom",
+	"coords": {
+		"osmzoom": 5,
+		"latdegdec": 37.0625,
+		"londegdec": -95.677068
+	}
+},
+{
+	"url": "https://www.google.de/maps/@37.0625,-95.677068,54286m/data=!3m1!1e3",
+	"urldesc": "Google Satellite not supported yet",
+	"coords": null
+},
+{
+	"url": "http://maps.skobbler.com/@65.8926803,128.2324219,4/categorySearch",
+	"coords": {
+		"osmzoom": 4,
+		"latdegdec": 65.8926803,
+		"londegdec": 128.2324219
+	}
+},
+{
+	"url": "http://keepright.at/report_map.php?zoom=14&lat=47.6941&lon=9.0695",
+	"templateurl": "http://keepright.at/report_map.php?zoom={osmzoom}&lat={latdegdec}&lon={londegdec}",
+	"coords": {
+		"osmzoom": 14,
+		"latdegdec": 47.6941,
+		"londegdec": 9.0695
+	}
+},
+{
+	"url": "http://mc.bbbike.org/mc/?lon=24.893338&lat=67.874522&zoom=15",
+	"templateurl": "http://mc.bbbike.org/mc/?lon={londegdec}&lat={latdegdec}&zoom={osmzoom}",
+	"coords": {
+		"osmzoom": 15,
+		"latdegdec": 67.874522,
+		"londegdec": 24.893338
+	}
+},
+{
+	"url": "http://mapy.cz/zakladni?x=15.6252330&y=49.8022514&z=8",
+	"coords": {
+		"osmzoom": 8,
+		"latdegdec": 49.8022514,
+		"londegdec": 15.625233
+	}
+}
+]
