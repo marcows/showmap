@@ -156,15 +156,20 @@ function createUsemapsPanel()
 		position: showmapButton
 	});
 
-	// Send the current destination maps to the panel script when showing
-	// the panel.
-	usemapsPanel.on("show", function() {
+	// Send the current destination maps to the panel script once for
+	// initialization and each time when changing the preferences. Doing
+	// this only when showing the panel can lead to a visible panel resize.
+	usemapsPanel.port.emit("destmaps", JSON.parse(preferences.prefs.destmaps));
+	preferences.on("destmaps", function() {
 		usemapsPanel.port.emit("destmaps", JSON.parse(preferences.prefs.destmaps));
 	});
 
 	// Update the button state when hiding the panel.
 	usemapsPanel.on("hide", function() {
 		showmapButton.state("window", {checked: false});
+
+		// Prevent "hover" display of the last pressed item on next panel show.
+		usemapsPanel.port.emit("destmaps", JSON.parse(preferences.prefs.destmaps));
 	});
 
 	usemapsPanel.port.on("linkpress", function(url) {
