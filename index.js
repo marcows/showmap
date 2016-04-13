@@ -76,9 +76,7 @@ function createAndShowEditmaps()
 		contextMenu: true
 	});
 
-	editmapsPanel.on("show", function() {
-		editmapsPanel.port.emit("destmaps", JSON.parse(preferences.prefs.destmaps));
-	});
+	editmapsPanel.port.emit("destmaps", JSON.parse(preferences.prefs.destmaps));
 
 	editmapsPanel.on("hide", function() {
 		tabs.removeListener("deactivate", hideEditmapsPanel);
