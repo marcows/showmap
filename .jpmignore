@@ -4,6 +4,8 @@
 /.jpmignore
 /test/
 /data/icon.xcf
+/LICENSE.txt
+/README.md
 
 # created by jpm
 *.xpi
