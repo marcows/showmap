@@ -69,8 +69,8 @@ function initDestMaps()
 function createAndShowEditmaps()
 {
 	var editmapsPanel = require("sdk/panel").Panel({
-		width: 600,
-		height: 400,
+		width: 700,
+		height: 500,
 		contentURL: "./editmaps.html",
 		contentScriptFile: "./editmaps.js",
 		contextMenu: true
