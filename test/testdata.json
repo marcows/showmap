@@ -17,6 +17,15 @@
 	}
 },
 {
+	"url": "https://maps.wikimedia.org/#11/13.7954/-5.0098",
+	"templateurl": "https://maps.wikimedia.org/#{osmzoom}/{latdegdec}/{londegdec}",
+	"coords": {
+		"osmzoom": 11,
+		"latdegdec": 13.7954,
+		"londegdec": -5.0098
+	}
+},
+{
 	"url": "https://www.google.com/maps/@37.0625,-95.677068,4z",
 	"templateurl": "https://www.google.com/maps/@{latdegdec},{londegdec},{osmzoom}z",
 	"coords": {
@@ -69,6 +78,7 @@
 },
 {
 	"url": "http://maps.skobbler.com/@65.8926803,128.2324219,4/categorySearch",
+	"templateurl": "http://maps.skobbler.com/@{latdegdec},{londegdec},{osmzoom}/categorySearch",
 	"coords": {
 		"osmzoom": 4,
 		"latdegdec": 65.8926803,
@@ -99,6 +109,15 @@
 		"osmzoom": 8,
 		"latdegdec": 49.8022514,
 		"londegdec": 15.625233
+	}
+},
+{
+	"url": "http://wikimapia.org/#lang=de&lat=48.777913&lon=8.081818&z=10&m=w",
+	"templateurl": "http://wikimapia.org/#lang=de&lat={latdegdec}&lon={londegdec}&z={osmzoom}&m=w",
+	"coords": {
+		"osmzoom": 10,
+		"latdegdec": 48.777913,
+		"londegdec": 8.081818
 	}
 }
 ]
