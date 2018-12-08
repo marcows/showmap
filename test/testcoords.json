@@ -108,6 +108,38 @@
 	"completed": { "scale": 4000, "osmzoom": 17 }
 },
 {
+	"partial": { "scale": 10000 },
+	"completed": { "scale": 10000, "osmzoom": 16 }
+},
+{
+	"partial": { "scale": 30000 },
+	"completed": { "scale": 30000, "osmzoom": 14 }
+},
+{
+	"partial": { "scale": 50000 },
+	"completed": { "scale": 50000, "osmzoom": 13 }
+},
+{
+	"partial": { "scale": 100000 },
+	"completed": { "scale": 100000, "osmzoom": 12 }
+},
+{
+	"partial": { "scale": 300000 },
+	"completed": { "scale": 300000, "osmzoom": 11 }
+},
+{
+	"partial": { "scale": 1000000 },
+	"completed": { "scale": 1000000, "osmzoom": 9 }
+},
+{
+	"partial": { "scale": 3000000 },
+	"completed": { "scale": 3000000, "osmzoom": 7 }
+},
+{
+	"partial": { "scale": 10000000 },
+	"completed": { "scale": 10000000, "osmzoom": 6 }
+},
+{
 	"partial": { "scale":   741455200 },
 	"completed": { "scale": 741455200, "osmzoom": 0 }
 },

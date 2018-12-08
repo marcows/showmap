@@ -119,5 +119,59 @@
 		"latdegdec": 48.777913,
 		"londegdec": 8.081818
 	}
+},
+{
+	"url": "https://tools.wmflabs.org/geohack/geohack.php?params=-27.11_N_-109.36_E_globe:",
+	"templateurl": "https://tools.wmflabs.org/geohack/geohack.php?params={latdegdec}_N_{londegdec}_E_globe:",
+	"coords": {
+		"latdegdec": -27.11,
+		"londegdec": -109.36,
+		"scale": 300000
+	}
+},
+{
+	"url": "https://tools.wmflabs.org/geohack/geohack.php?params=27_6.6_S_-109_21.6_E_globe:_dim:24km",
+	"coords": {
+		"latdegdec": -27.11,
+		"londegdec": -109.36,
+		"scale": 240000
+	}
+},
+{
+	"url": "https://tools.wmflabs.org/geohack/geohack.php?params=27_6_36_S_-109_21.555_2.7_E_globe:earth",
+	"coords": {
+		"latdegdec": -27.110000000000003,
+		"londegdec": -109.36,
+		"scale": 300000
+	}
+},
+{
+	"url": "https://tools.wmflabs.org/geohack/geohack.php?params=27.11_S_-109.36_E_globe:earth_scale:1250",
+	"coords": {
+		"latdegdec": -27.11,
+		"londegdec": -109.36,
+		"scale": 1250
+	}
+},
+{
+	"url": "https://tools.wmflabs.org/geohack/geohack.php?params=27.11_S_-109.36_E_globe:earthnew",
+	"urldesc": "only planet earth supported",
+	"coords": null
+},
+{
+	"url": "https://tools.wmflabs.org/geohack/geohack.php?params=48.858222_N_2.2945_E_dim:250_region:FR-75_type:landmark&pagename=Eiffelturm&language=de",
+	"coords": {
+		"latdegdec": 48.858222,
+		"londegdec": 2.2945,
+		"scale": 2500
+	}
+},
+{
+	"url": "https://tools.wmflabs.org/geohack/geohack.php?pagename=Puerto_Montt&params=41_28_S_72_56_W_region:CL-LL_type:city(245902)",
+	"coords": {
+		"latdegdec": -41.46666666666667,
+		"londegdec": -72.93333333333334,
+		"scale": 100000
+	}
 }
 ]
