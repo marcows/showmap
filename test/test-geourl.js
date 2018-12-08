@@ -1,6 +1,6 @@
 var geourl = require("../lib/geourl.js");
 
-var testdata = require("./testdata.json");
+var testdata = require("./testurls.json");
 
 function printDescription(key)
 {
