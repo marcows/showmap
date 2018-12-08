@@ -26,6 +26,7 @@ var browserWindows = require("sdk/windows").browserWindows;
 var tabs = require("sdk/tabs");
 
 var geourl = require("./lib/geourl.js");
+var mapcoords = require("./lib/mapcoords.js");
 
 var iconsDisabled = {
 	"16": "./icon-disabled-16.png",
@@ -173,6 +174,7 @@ function createUsemapsPanel()
 	usemapsPanel.port.on("linkpress", function(url) {
 		var coords = geourl.parse(tabs.activeTab.url);
 		if (coords) {
+			coords = mapcoords.complete(coords);
 			tabs.open(geourl.decode(url, coords));
 		}
 		usemapsPanel.hide();
