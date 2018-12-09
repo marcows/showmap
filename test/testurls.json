@@ -173,5 +173,13 @@
 		"londegdec": -72.93333333333334,
 		"scale": 100000
 	}
+},
+{
+	"url": "https://de.wikivoyage.org/w/index.php?title=Spezial:Kartenherkunft&params=35.68_N_139.76_E_scale%3A70000_dim%3A10000_globe%3Aearth_region%3AJP&locname=Tokio",
+	"coords": {
+		"latdegdec": 35.68,
+		"londegdec": 139.76,
+		"scale": 70000
+	}
 }
 ]
