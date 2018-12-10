@@ -121,6 +121,24 @@
 	}
 },
 {
+	"url": "http://map.project-osrm.org/?z=14&center=2.162977%2C117.512856&hl=en&alt=0",
+	"templateurl": "http://map.project-osrm.org/?z={osmzoom}&center={latdegdec}%2C{londegdec}&hl=en&alt=0",
+	"coords": {
+		"osmzoom": 14,
+		"latdegdec": 2.162977,
+		"londegdec": 117.512856
+	}
+},
+{
+	"url": "http://map.project-osrm.org/?z=15&center=2.162977,117.512856&hl=en&alt=0",
+	"templateurl": "http://map.project-osrm.org/?z={osmzoom}&center={latdegdec},{londegdec}&hl=en&alt=0",
+	"coords": {
+		"osmzoom": 15,
+		"latdegdec": 2.162977,
+		"londegdec": 117.512856
+	}
+},
+{
 	"url": "https://tools.wmflabs.org/geohack/geohack.php?params=-27.11_N_-109.36_E_globe:",
 	"templateurl": "https://tools.wmflabs.org/geohack/geohack.php?params={latdegdec}_N_{londegdec}_E_globe:",
 	"coords": {
