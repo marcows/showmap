@@ -17,6 +17,15 @@
 	}
 },
 {
+	"url": "https://hiking.waymarkedtrails.org/#?map=10!47.5132!10.5074",
+	"templateurl": "https://hiking.waymarkedtrails.org/#?map={osmzoom}!{latdegdec}!{londegdec}",
+	"coords": {
+		"osmzoom": 10,
+		"latdegdec": 47.5132,
+		"londegdec": 10.5074
+	}
+},
+{
 	"url": "https://maps.wikimedia.org/#11/13.7954/-5.0098",
 	"templateurl": "https://maps.wikimedia.org/#{osmzoom}/{latdegdec}/{londegdec}",
 	"coords": {
