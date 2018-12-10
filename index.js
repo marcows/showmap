@@ -227,7 +227,7 @@ function setupShowmapButtonTabEvents()
 	// to detect address/location bar change
 	const {modelFor} = require("sdk/model/core");
 	const {viewFor} = require("sdk/view/core");
-	const {getBrowserForTab, getTabForContentWindow} = require("sdk/tabs/utils");
+	const {getTabForContentWindow} = require("sdk/tabs/utils");
 	const {Ci, Cu} = require("chrome");
 	Cu.import("resource://gre/modules/XPCOMUtils.jsm", this);
 
@@ -235,7 +235,7 @@ function setupShowmapButtonTabEvents()
 		QueryInterface: XPCOMUtils.generateQI(["nsIWebProgressListener", "nsISupportsWeakReference"]),
 		// Do not use aURI because this will not be the URI of the tab
 		// when clicked on an #anchor link inside a frame.
-		onLocationChange: function(aProgress, aRequest, aURI, aFlags) {
+		onLocationChange: function(aBrowser, aProgress, aRequest, aURI, aFlags) {
 			if (aFlags & Ci.nsIWebProgressListener.LOCATION_CHANGE_SAME_DOCUMENT) {
 				if (modelFor(getTabForContentWindow(aProgress.DOMWindow)) === tabs.activeTab) {
 					updateShowmapButtonState();
@@ -244,21 +244,16 @@ function setupShowmapButtonTabEvents()
 		}
 	};
 
-	function addProgressListenerToTab(tab)
+	function addProgressListenerToWindow(browserWindow)
 	{
-		var lowLevel = viewFor(tab);
-		var browser = getBrowserForTab(lowLevel);
-		browser.addProgressListener(progressListener);
+		var chromeWindow = viewFor(browserWindow);
+		chromeWindow.gBrowser.addTabsProgressListener(progressListener);
 	}
 
-	addProgressListenerToTab(tabs.activeTab);
-
-	tabs.on("open", function(newTab) {
-		addProgressListenerToTab(newTab);
-	});
+	addProgressListenerToWindow(browserWindows.activeWindow);
 
 	browserWindows.on("open", function(newWindow) {
-		addProgressListenerToTab(newWindow.tabs[0]);
+		addProgressListenerToWindow(newWindow);
 	});
 }
 
