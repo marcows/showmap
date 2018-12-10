@@ -121,6 +121,15 @@
 	}
 },
 {
+	"url": "https://maps.openrouteservice.org/directions?n1=49.409445&n2=8.692953&n3=13&b=0&k1=en-US&k2=km",
+	"templateurl": "https://maps.openrouteservice.org/directions?n1={latdegdec}&n2={londegdec}&n3={osmzoom}&b=0&k1=en-US&k2=km",
+	"coords": {
+		"osmzoom": 13,
+		"latdegdec": 49.409445,
+		"londegdec": 8.692953
+	}
+},
+{
 	"url": "http://map.project-osrm.org/?z=14&center=2.162977%2C117.512856&hl=en&alt=0",
 	"templateurl": "http://map.project-osrm.org/?z={osmzoom}&center={latdegdec}%2C{londegdec}&hl=en&alt=0",
 	"coords": {
