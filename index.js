@@ -24,6 +24,7 @@
 var preferences = require("sdk/simple-prefs");
 var browserWindows = require("sdk/windows").browserWindows;
 var tabs = require("sdk/tabs");
+var contextMenu = require("sdk/context-menu");
 
 var geourl = require("./lib/geourl.js");
 var mapcoords = require("./lib/mapcoords.js");
@@ -42,6 +43,7 @@ var iconsEnabled = {
 
 var showmapButton;
 var usemapsPanel;
+var showmapContextMenu;
 
 /**
  * Set default destination maps in the preferences if not yet defined or empty.
@@ -257,6 +259,74 @@ function setupShowmapButtonTabEvents()
 	});
 }
 
+/*
+ * Handle the events sent from the context menu's content script.
+ */
+function handleContextMenuEvents(params)
+{
+	var coords = geourl.parse(params.url);
+
+	if (params.templateurl) {
+		// "click" event
+		if (coords) {
+			coords = mapcoords.complete(coords);
+			tabs.open(geourl.decode(params.templateurl, coords));
+		}
+	} else {
+		// "context" event
+		// Use active/inactive icon, showing/hiding the menu was not possible.
+		if (coords) {
+			showmapContextMenu.image = "resource://@showmap/data/icon-16.png";
+		} else {
+			showmapContextMenu.image = "resource://@showmap/data/icon-disabled-16.png";
+		}
+	}
+}
+
+/*
+ * Create or update the context menu items with the destionation maps from
+ * preferences.
+ */
+function updateContextMenuItems()
+{
+	var destMaps = JSON.parse(preferences.prefs.destmaps);
+
+	// First clear the context menu.
+	showmapContextMenu.items.forEach(function (item) {
+		item.destroy();
+	});
+
+	// Then add the items.
+	for (var i = 0; i < destMaps.length; i++) {
+		if (destMaps[i].enabled) {
+			showmapContextMenu.addItem(contextMenu.Item({
+				label: destMaps[i].name,
+				data: destMaps[i].templateurl
+			}));
+		}
+	}
+}
+
+/**
+ * Create the context menu for opening destination maps from a supported URL.
+ */
+function createContextMenu()
+{
+	showmapContextMenu = contextMenu.Menu({
+		label: "Show map",
+		image: "resource://@showmap/data/icon-16.png",
+		context: contextMenu.SelectorContext("a[href]"),
+		contentScriptFile: "./contextmaps.js",
+		onMessage: handleContextMenuEvents
+	});
+
+	// Create the context menu items with the current destination maps once
+	// for initialization and each time when changing the preferences.
+	// Similar to how it is done for the usemaps panel.
+	updateContextMenuItems();
+	preferences.on("destmaps", updateContextMenuItems);
+}
+
 function main(options, callbacks)
 {
 	initDestMaps();
@@ -266,6 +336,8 @@ function main(options, callbacks)
 	createShowmapButton();
 	createUsemapsPanel();
 	setupShowmapButtonTabEvents();
+
+	createContextMenu();
 }
 
 exports.main = main;
