@@ -260,6 +260,14 @@ function setupShowmapButtonTabEvents()
 }
 
 /*
+ * Check whether the context can be used for the context menu.
+ */
+function isContextUsable(ctx)
+{
+	return !!geourl.parse(ctx.linkURL);
+}
+
+/*
  * Handle the events sent from the context menu's content script.
  */
 function handleContextMenuEvents(params)
@@ -271,14 +279,6 @@ function handleContextMenuEvents(params)
 		if (coords) {
 			coords = mapcoords.complete(coords);
 			tabs.open(geourl.decode(params.templateurl, coords));
-		}
-	} else {
-		// "context" event
-		// Use active/inactive icon, showing/hiding the menu was not possible.
-		if (coords) {
-			showmapContextMenu.image = "resource://@showmap/data/icon-16.png";
-		} else {
-			showmapContextMenu.image = "resource://@showmap/data/icon-disabled-16.png";
 		}
 	}
 }
@@ -315,7 +315,8 @@ function createContextMenu()
 	showmapContextMenu = contextMenu.Menu({
 		label: "Show map",
 		image: "resource://@showmap/data/icon-16.png",
-		context: contextMenu.SelectorContext("a[href]"),
+		context: [contextMenu.SelectorContext("a[href]"),
+			contextMenu.PredicateContext(isContextUsable)],
 		contentScriptFile: "./contextmaps.js",
 		onMessage: handleContextMenuEvents
 	});
