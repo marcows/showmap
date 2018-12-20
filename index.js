@@ -315,8 +315,7 @@ function createContextMenu()
 	showmapContextMenu = contextMenu.Menu({
 		label: "Show map",
 		image: "resource://@showmap/data/icon-16.png",
-		context: [contextMenu.SelectorContext("a[href]"),
-			contextMenu.PredicateContext(isContextUsable)],
+		context: contextMenu.PredicateContext(isContextUsable),
 		contentScriptFile: "./contextmaps.js",
 		onMessage: handleContextMenuEvents
 	});
