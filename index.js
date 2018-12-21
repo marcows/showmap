@@ -190,11 +190,15 @@ function createUsemapsPanel()
 function updateShowmapButtonState()
 {
 	if (geourl.parse(tabs.activeTab.url)) {
-		showmapButton.disabled = false;
-		showmapButton.icon = iconsEnabled;
+		showmapButton.state("window", {
+			disabled: false,
+			icon: iconsEnabled
+		});
 	} else {
-		showmapButton.disabled = true;
-		showmapButton.icon = iconsDisabled;
+		showmapButton.state("window", {
+			disabled: true,
+			icon: iconsDisabled
+		});
 		usemapsPanel.hide();
 	}
 }
