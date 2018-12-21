@@ -29,12 +29,6 @@ var contextMenu = require("sdk/context-menu");
 var geourl = require("./lib/geourl.js");
 var mapcoords = require("./lib/mapcoords.js");
 
-var iconsDisabled = {
-	"16": "./icon-disabled-16.png",
-	"32": "./icon-disabled-32.png",
-	"64": "./icon-disabled-64.png"
-};
-
 var iconsEnabled = {
 	"16": "./icon-16.png",
 	"32": "./icon-32.png",
@@ -126,7 +120,7 @@ function createShowmapButton()
 		id: "showmapButton",
 		label: "Show map",
 		disabled: true,
-		icon: iconsDisabled
+		icon: iconsEnabled
 	});
 
 	// Show or hide the panel when clicking the button.
@@ -191,13 +185,11 @@ function updateShowmapButtonState()
 {
 	if (geourl.parse(tabs.activeTab.url)) {
 		showmapButton.state("window", {
-			disabled: false,
-			icon: iconsEnabled
+			disabled: false
 		});
 	} else {
 		showmapButton.state("window", {
-			disabled: true,
-			icon: iconsDisabled
+			disabled: true
 		});
 		usemapsPanel.hide();
 	}
