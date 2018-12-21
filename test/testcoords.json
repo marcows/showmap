@@ -1,5 +1,9 @@
 [
 {
+	"partial": { },
+	"completed": { "osmzoom": 15, "scale": 16000 }
+},
+{
 	"partial": { "osmzoom": 0 },
 	"completed": { "osmzoom": 0, "scale": 524288000 }
 },
@@ -81,7 +85,7 @@
 },
 {
 	"partial": { "scale": 0 },
-	"completed": { "scale": 0 }
+	"completed": { "scale": 16000, "osmzoom": 15 }
 },
 {
 	"partial": { "scale": 1000 },
