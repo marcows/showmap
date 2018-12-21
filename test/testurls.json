@@ -170,8 +170,7 @@
 	"templateurl": "https://tools.wmflabs.org/geohack/geohack.php?params={latdegdec}_N_{londegdec}_E_globe:",
 	"coords": {
 		"latdegdec": -27.11,
-		"londegdec": -109.36,
-		"scale": 300000
+		"londegdec": -109.36
 	}
 },
 {
@@ -186,8 +185,7 @@
 	"url": "https://tools.wmflabs.org/geohack/geohack.php?params=27_6_36_S_-109_21.555_2.7_E_globe:earth",
 	"coords": {
 		"latdegdec": -27.110000000000003,
-		"londegdec": -109.36,
-		"scale": 300000
+		"londegdec": -109.36
 	}
 },
 {
