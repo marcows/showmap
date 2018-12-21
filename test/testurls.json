@@ -1,5 +1,13 @@
 [
 {
+	"url": "geo:-54.0253,-68.6165",
+	"templateurl": "geo:{latdegdec},{londegdec}",
+	"coords": {
+		"latdegdec": -54.0253,
+		"londegdec": -68.6165
+	}
+},
+{
 	"url": "http://www.openstreetmap.org/#map=5/51.500/-0.100",
 	"coords": {
 		"osmzoom": 5,
