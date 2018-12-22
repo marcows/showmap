@@ -184,11 +184,11 @@ function createUsemapsPanel()
 function updateShowmapButtonState()
 {
 	if (geourl.parse(tabs.activeTab.url)) {
-		showmapButton.state("window", {
+		showmapButton.state("tab", {
 			disabled: false
 		});
 	} else {
-		showmapButton.state("window", {
+		showmapButton.state("tab", {
 			disabled: true
 		});
 		usemapsPanel.hide();
