@@ -54,7 +54,7 @@ function addLink(name, uri)
 /**
  * Add links for all enabled destination maps to the panel.
  *
- * @param {DestinationsMaps} destMaps - destination maps
+ * @param {DestinationMaps} destMaps - destination maps
  *
  * @fires pagesize
  */

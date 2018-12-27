@@ -7,18 +7,20 @@
 /**
  * Configured destination maps.
  *
- * @typedef {Object[]} DestinationsMaps
+ * @typedef {Object[]} DestinationMaps
  *
  * @property {String} name - name of the map
  * @property {String} templateurl - template URL with variables
  * @property {String} enabled - enabled or disabled in configuration
+ *
+ * @global
  */
 
 /**
  * Event to pass destination maps around.
  *
  * @event destmaps
- * @type {DestinationsMaps}
+ * @type {DestinationMaps}
  */
 
 var preferences = require("sdk/simple-prefs");
