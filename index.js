@@ -31,6 +31,10 @@ var contextMenu = require("sdk/context-menu");
 var geourl = require("./lib/geourl.js");
 var mapcoords = require("./lib/mapcoords.js");
 
+var geositeScripts = [
+	"./geosite.js"
+];
+
 var iconsEnabled = {
 	"16": "./icon-16.png",
 	"32": "./icon-32.png",
@@ -40,6 +44,8 @@ var iconsEnabled = {
 var showmapButton;
 var usemapsPanel;
 var showmapContextMenu;
+
+var geositeInfo;
 
 /**
  * Set default destination maps in the preferences if not yet defined or empty.
@@ -170,7 +176,15 @@ function createUsemapsPanel()
 	});
 
 	usemapsPanel.port.on("linkpress", function(url) {
-		var coords = geourl.parse(tabs.activeTab.url);
+		var coords;
+
+		// Prefer geosite information over address bar URL, which might
+		// not be updated when dragging the map.
+		if (geositeInfo && geositeInfo.coords)
+			coords = geositeInfo.coords;
+		else
+			coords = geourl.parse(tabs.activeTab.url);
+
 		if (coords) {
 			coords = mapcoords.complete(coords);
 			tabs.open(geourl.decode(url, coords));
@@ -210,6 +224,21 @@ function updateShowmapButtonState()
 {
 	// geourl handling
 	setShowmapButtonState(!!geourl.parse(tabs.activeTab.url));
+
+	// geosite handling
+	tabs.activeTab.attach({
+		contentScriptFile: geositeScripts,
+		contentScript: 'self.port.emit("geositeinfo", scanGeosite());'
+	}).port.on("geositeinfo", function(info) {
+		// Save the geo information for possible use later, even if
+		// undefined to avoid outdated information.
+		geositeInfo = info;
+
+		// Only enable the state, do not disable it, this would lead to
+		// overwriting a state enabled by geourl.
+		if (geositeInfo)
+			setShowmapButtonState(true);
+	});
 }
 
 /*
