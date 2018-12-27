@@ -16,6 +16,7 @@
  */
 
 var scanners = [
+	scanGeosite_GeoTag,
 ];
 
 /**
