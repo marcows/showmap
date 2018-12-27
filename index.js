@@ -183,9 +183,12 @@ function createUsemapsPanel()
 	});
 }
 
-function updateShowmapButtonState()
+/*
+ * Enable or disable the button for the active tab.
+ */
+function setShowmapButtonState(enable)
 {
-	if (geourl.parse(tabs.activeTab.url)) {
+	if (enable) {
 		showmapButton.state("tab", {
 			disabled: false
 		});
@@ -195,6 +198,18 @@ function updateShowmapButtonState()
 		});
 		usemapsPanel.hide();
 	}
+}
+
+/*
+ * Update the button state for the active tab.
+ *
+ * Invoked after specific tab events when the state of the button might be
+ * changed. Checks the active website for geo position.
+ */
+function updateShowmapButtonState()
+{
+	// geourl handling
+	setShowmapButtonState(!!geourl.parse(tabs.activeTab.url));
 }
 
 /*
