@@ -11,6 +11,7 @@
  * @typedef {Object} GeositeInfo
  *
  * @property {GeoHackCoords} coords - map coordinates
+ * @property {String} url - Geo URL
  *
  * @global
  */

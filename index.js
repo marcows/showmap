@@ -235,10 +235,16 @@ function updateShowmapButtonState()
 		// undefined to avoid outdated information.
 		geositeInfo = info;
 
-		// Only enable the state, do not disable it, this would lead to
-		// overwriting a state enabled by geourl.
-		if (geositeInfo)
-			setShowmapButtonState(true);
+		if (geositeInfo) {
+			// If not having direct coordinates, try the indirect way.
+			if (!geositeInfo.coords && geositeInfo.url)
+				geositeInfo.coords = geourl.parse(geositeInfo.url);
+
+			// Only enable the state, do not disable it, this would lead to
+			// overwriting a state enabled by geourl.
+			if (geositeInfo.coords)
+				setShowmapButtonState(true);
+		}
 	});
 }
 
