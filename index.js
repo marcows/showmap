@@ -32,6 +32,7 @@ var geourl = require("./lib/geourl.js");
 var mapcoords = require("./lib/mapcoords.js");
 
 var geositeScripts = [
+	"./geosite/wikipedia.js",
 	"./geosite/geotag.js",
 	"./geosite.js"
 ];
