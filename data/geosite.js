@@ -17,7 +17,10 @@
  */
 
 var scanners = [
-	scanGeosite_GeoTag,
+	{
+		func: scanGeosite_GeoTag,
+		urlpattern: /.*/
+	}
 ];
 
 /**
@@ -29,9 +32,11 @@ function scanGeosite()
 {
 	var geoinfo;
 
-	// try all scanners till success
+	// try all scanners matching the URL pattern till success
 	for (var i = 0; i < scanners.length; i++) {
-		geoinfo = scanners[i]();
+		if (scanners[i].urlpattern.test(window.location.href))
+			geoinfo = scanners[i].func();
+
 		if (geoinfo)
 			break;
 	}
