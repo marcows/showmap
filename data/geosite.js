@@ -19,10 +19,10 @@
 var scanners = [
 	{
 		func: scanGeosite_Wikipedia,
-		urlpattern: /https:\/\/[a-z]+\.wikipedia\.org\/wiki\//
+		urlpattern: /^https:\/\/[a-z]+\.wikipedia\.org\/wiki\//
 	},{
 		func: scanGeosite_GeoTag,
-		urlpattern: /.*/
+		urlpattern: /^(https?|file):\/\//
 	}
 ];
 
