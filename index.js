@@ -38,17 +38,37 @@ var geositeScripts = [
 	"./geosite.js"
 ];
 
+var iconsDisabled = {
+	"16": "./icon-disabled-16.png",
+	"32": "./icon-disabled-32.png",
+	"64": "./icon-disabled-64.png"
+};
+
 var iconsEnabled = {
 	"16": "./icon-16.png",
 	"32": "./icon-32.png",
 	"64": "./icon-64.png"
 };
 
+var firefoxVersion;
+
 var showmapButton;
 var usemapsPanel;
 var showmapContextMenu;
 
 var geositeInfo;
+
+/*
+ * Check whether this Firefox version can dim the toggle button icon.
+ *
+ * To choose if in "disabled" state a different icon should be used or not.
+ *
+ * @returns {Boolean}
+ */
+function firefoxCanDimIcon()
+{
+	return firefoxVersion && firefoxVersion >= 55;
+}
 
 /**
  * Set default destination maps in the preferences if not yet defined or empty.
@@ -131,7 +151,7 @@ function createShowmapButton()
 		id: "showmapButton",
 		label: "Show map",
 		disabled: true,
-		icon: iconsEnabled
+		icon: firefoxCanDimIcon() ? iconsEnabled : iconsDisabled
 	});
 
 	// Show or hide the panel when clicking the button.
@@ -207,11 +227,13 @@ function setShowmapButtonState(enable)
 {
 	if (enable) {
 		showmapButton.state("tab", {
-			disabled: false
+			disabled: false,
+			icon: iconsEnabled
 		});
 	} else {
 		showmapButton.state("tab", {
-			disabled: true
+			disabled: true,
+			icon: firefoxCanDimIcon() ? iconsEnabled : iconsDisabled
 		});
 		usemapsPanel.hide();
 	}
@@ -380,6 +402,9 @@ function createContextMenu()
 
 function main(options, callbacks)
 {
+	// get the major version number, e.g. 56.2.6 -> 56
+	firefoxVersion = parseInt(require("sdk/preferences/service").get("extensions.lastAppVersion", 0), 10);
+
 	initDestMaps();
 
 	preferences.on("editmaps", createAndShowEditmaps);
