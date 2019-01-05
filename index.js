@@ -67,7 +67,7 @@ var geositeInfo;
  */
 function firefoxCanDimIcon()
 {
-	return firefoxVersion && firefoxVersion >= 55;
+	return firefoxVersion >= 55;
 }
 
 /**
@@ -403,7 +403,7 @@ function createContextMenu()
 function main(options, callbacks)
 {
 	// get the major version number, e.g. 56.2.6 -> 56
-	firefoxVersion = parseInt(require("sdk/preferences/service").get("extensions.lastAppVersion", 0), 10);
+	firefoxVersion = parseInt(require("sdk/preferences/service").get("extensions.lastAppVersion", 56), 10);
 
 	initDestMaps();
 
