@@ -147,6 +147,15 @@
 	}
 },
 {
+	"url": "https://www.flickr.com/map/?fLat=41.360536&fLon=2.027299&zl=13&everyone_nearby=1",
+	"templateurl": "https://www.flickr.com/map/?fLat={latdegdec}&fLon={londegdec}&zl={osmzoom}&everyone_nearby=1",
+	"coords": {
+		"osmzoom": 13,
+		"latdegdec": 41.360536,
+		"londegdec": 2.027299
+	}
+},
+{
 	"url": "http://map.project-osrm.org/?z=14&center=2.162977%2C117.512856&hl=en&alt=0",
 	"templateurl": "http://map.project-osrm.org/?z={osmzoom}&center={latdegdec}%2C{londegdec}&hl=en&alt=0",
 	"coords": {
