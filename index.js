@@ -34,6 +34,7 @@ var mapcoords = require("./lib/mapcoords.js");
 var geositeScripts = [
 	"./geosite/wikipedia.js",
 	"./geosite/wikivoyage.js",
+	"./geosite/flickr.js",
 	"./geosite/geotag.js",
 	"./geosite.js"
 ];

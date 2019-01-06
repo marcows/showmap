@@ -24,6 +24,9 @@ var scanners = [
 		func: scanGeosite_Wikivoyage,
 		urlpattern: /^https:\/\/[a-z.]+\.wikivoyage\.org\/wiki\//
 	},{
+		func: scanGeosite_Flickr,
+		urlpattern: /^https:\/\/www\.flickr\.com\/photos\//
+	},{
 		func: scanGeosite_GeoTag,
 		urlpattern: /^(https?|file):\/\//
 	}
