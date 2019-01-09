@@ -23,6 +23,8 @@
  * @type {GeositeInfo}
  */
 
+"use strict";
+
 var scanners = [
 	{
 		func: scanGeosite_Wikipedia,

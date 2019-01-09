@@ -17,6 +17,7 @@
  * @event pagesize
  */
 
+"use strict";
 
 /**
  * Handle a click on a panel link.

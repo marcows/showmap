@@ -2,6 +2,8 @@
  * UI for configuring and selecting the used destination maps.
  */
 
+"use strict";
+
 var draggedEl;
 
 function handleDragStart(ev)

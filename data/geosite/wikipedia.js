@@ -2,6 +2,8 @@
  * Part of content script {@link module:data/geosite}.
  */
 
+"use strict";
+
 /*
  * Scanner for Wikipedia.
  *

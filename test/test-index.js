@@ -1,3 +1,5 @@
+"use strict";
+
 var main = require("../");
 var preferences = require("sdk/simple-prefs");
 

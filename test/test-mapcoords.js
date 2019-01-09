@@ -1,3 +1,5 @@
+"use strict";
+
 var mapcoords = require("../lib/mapcoords.js");
 
 var testdata = require("./testcoords.json");

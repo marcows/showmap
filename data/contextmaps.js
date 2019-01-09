@@ -2,6 +2,8 @@
  * Content script for the context menu with the destination maps.
  */
 
+"use strict";
+
 /*
  * Handle the event when a context menu item has been clicked.
  */

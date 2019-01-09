@@ -1,3 +1,5 @@
+"use strict";
+
 var geourl = require("../lib/geourl.js");
 
 var testdata = require("./testurls.json");
