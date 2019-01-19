@@ -248,10 +248,10 @@ function setShowmapButtonState(enable)
  */
 function updateShowmapButtonState()
 {
-	// geourl handling
+	// check website address
 	setShowmapButtonState(!!geourl.parse(tabs.activeTab.url));
 
-	// geosite handling
+	// check website content
 	tabs.activeTab.attach({
 		contentScriptFile: geositeScripts,
 		contentScript: 'self.port.emit("geositeinfo", scanGeosite());'
@@ -264,12 +264,26 @@ function updateShowmapButtonState()
 			// If not having direct coordinates, try the indirect way.
 			if (!geositeInfo.coords && geositeInfo.url)
 				geositeInfo.coords = geourl.parse(geositeInfo.url);
-
-			// Only enable the state, do not disable it, this would lead to
-			// overwriting a state enabled by geourl.
-			if (geositeInfo.coords)
-				setShowmapButtonState(true);
 		}
+
+		/*
+		 * Always enable the button on positive result, but only
+		 * disable it on negative result if the website address check
+		 * was negative as well (do not overwrite its valid state).
+		 * That check is repeated here (instead of simply preventing to
+		 * set the state to false) to avoid inconsistent states in case
+		 * the result changed without being recognized by an event.
+		 *
+		 * Disabling the button has to happen here in any case because
+		 * the previous geosite result could have been a false
+		 * positive, but occur after the last website address check
+		 * because of the asynchronous result message from content
+		 * script.
+		 */
+		if ((geositeInfo && geositeInfo.coords) || geourl.parse(tabs.activeTab.url))
+			setShowmapButtonState(true);
+		else
+			setShowmapButtonState(false);
 	});
 }
 
