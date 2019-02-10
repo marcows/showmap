@@ -16,6 +16,13 @@
  * @global
  */
 
+/**
+ * Event to pass a website's geo information to the Add-On.
+ *
+ * @event geositeinfo
+ * @type {GeositeInfo}
+ */
+
 var scanners = [
 	{
 		func: scanGeosite_Wikipedia,
@@ -33,7 +40,8 @@ var scanners = [
 ];
 
 /**
- * Scan a website and return geo information.
+ * Scan a website and return geo information (which might also be passed via
+ * event if the DOM is not complete at first).
  *
  * @returns {GeositeInfo} Geo information, undefined if nothing found
  */

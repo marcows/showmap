@@ -245,6 +245,8 @@ function setShowmapButtonState(enable)
  *
  * Invoked after specific tab events when the state of the button might be
  * changed. Checks the active website for geo position.
+ *
+ * @listens geositeinfo
  */
 function updateShowmapButtonState()
 {
