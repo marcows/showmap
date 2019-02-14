@@ -45,7 +45,6 @@ function scanGeosite_Flickr()
 				if (mutation.type === "childList") {
 					var geoinfo = findGeoinfo();
 					if (geoinfo) {
-						observer.disconnect();
 						self.port.emit("geositeinfo", geoinfo);
 					}
 				}
@@ -60,9 +59,7 @@ function scanGeosite_Flickr()
 	}
 
 	var geoinfo = findGeoinfo();
-
-	if (!geoinfo)
-		observeGeoinfo();
+	observeGeoinfo();
 
 	return geoinfo;
 }
