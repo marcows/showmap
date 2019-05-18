@@ -23,9 +23,41 @@ It is also possible to use the context menu on a map link written somewhere in
 the website text. The website as a whole does not have to be georeferenced, but
 merely contain links to maps to make use of that feature.
 
-This Add-On is developed with the *Jetpack Add-On SDK* and its *jpm* command line
-tool. Unfortunately this SDK is no longer supported and does not work in
-current Firefox versions (57 and newer). Mozilla has switched to
-*WebExtensions* and dropped the legacy APIs. Of course some day this Add-On
+
+Development
+-----------
+
+This Add-On is developed with the
+[Jetpack Add-On SDK](https://developer.mozilla.org/en-US/docs/Archive/Add-ons/Add-on_SDK)
+and its
+[jpm](https://developer.mozilla.org/en-US/docs/Archive/Add-ons/Add-on_SDK/Tools/jpm)
+command line tool. Unfortunately this SDK is no longer supported and does not
+work in current Firefox versions (57 and newer). Mozilla has switched to
+[WebExtensions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
+and dropped the legacy APIs. Of course some day this Add-On
 should be converted to be usable with the latest Firefox version, but until
 then [Waterfox](https://waterfoxproject.org/) can be used for it.
+
+### Running
+
+Run this Add-On in your browser:
+
+```
+jpm run
+```
+
+### Testing
+
+Execute the unit tests:
+
+```
+jpm test
+```
+
+### Packaging
+
+Create an XPI package (.xpi file):
+
+```
+jpm xpi
+```
