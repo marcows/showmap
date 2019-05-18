@@ -1,13 +1,9 @@
-# project files
-/.git/
-/.gitignore
-/.jpmignore
-/test/
+.*
+*
+!/LICENSE.txt
+!/destmaps.json
+!/index.js
+!/package.json
+!/data/**
 /data/icon.xcf
-/README.md
-
-# created by jpm
-*.xpi
-
-# created by JSDoc
-/out/
+!/lib/**
