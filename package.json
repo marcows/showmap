@@ -3,6 +3,7 @@
   "name": "showmap",
   "version": "0.6.0",
   "description": "Open another map from the current map view or from a georeferenced website.",
+  "homepage": "https://github.com/marcows/showmap",
   "icon": "resource://@showmap/data/icon-32.png",
   "main": "index.js",
   "author": "Markus Heidelberg",
