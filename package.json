@@ -10,18 +10,21 @@
   "permissions": {
     "private-browsing": true
   },
-  "preferences": [{
-    "name": "destmaps",
-    "title": "Destination maps",
-    "description": "GeoHack compatible URIs in an array of objects",
-    "type": "string",
-    "hidden": true
-  }, {
-    "name": "editmaps",
-    "title": "Destination maps",
-    "type": "control",
-    "label": "Edit"
-  }],
+  "preferences": [
+    {
+      "name": "destmaps",
+      "title": "Destination maps",
+      "description": "GeoHack compatible URIs in an array of objects",
+      "type": "string",
+      "hidden": true
+    },
+    {
+      "name": "editmaps",
+      "title": "Destination maps",
+      "type": "control",
+      "label": "Edit"
+    }
+  ],
   "engines": {
     "firefox": ">=38.0a1"
   },
