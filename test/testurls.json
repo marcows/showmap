@@ -52,13 +52,13 @@
 	}
 },
 {
-	"url": "https://www.google.com/maps/@37.0625,-95.677068,4z",
+	"url": "https://www.google.com/maps/@37.0625,-95.677069,4z",
 	"templateurl": "https://www.google.com/maps/@%7Blatdegdec%7D,%7Blondegdec%7D,%7Bosmzoom%7Dz",
 	"templateurldesc": "escaped curly braces in template URL",
 	"coords": {
 		"osmzoom": 4,
 		"latdegdec": 37.0625,
-		"londegdec": -95.677068
+		"londegdec": -95.677069
 	}
 },
 {

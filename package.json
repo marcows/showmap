@@ -28,5 +28,11 @@
   "license": "MIT",
   "keywords": [
     "jetpack"
-  ]
+  ],
+  "devDependencies": {
+    "ava": "^1.4.1"
+  },
+  "scripts": {
+    "test": "ava"
+  }
 }

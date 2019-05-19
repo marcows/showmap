@@ -1,34 +1,25 @@
 "use strict";
 
-var geourl = require("../lib/geourl.js");
+import test from "ava";
 
-var testdata = require("./testurls.json");
+const geourl = require("../lib/geourl.js");
+const testdata = require("./testurls.json");
 
 function printDescription(key)
 {
 	return (key !== undefined ? " - " + key : "");
 }
 
-exports["test parse"] = function(assert) {
-	for (var i = 0; i < testdata.length; i++) {
-		assert.deepEqual(geourl.parse(testdata[i].url),
-				testdata[i].coords,
-				"Parse URL "
-				+ testdata[i].url
-				+ printDescription(testdata[i].urldesc));
-	}
-};
+for (const testitem of testdata) {
+	test("parse " + testitem.url + printDescription(testitem.urldesc), t => {
+		t.deepEqual(geourl.parse(testitem.url), testitem.coords);
+	});
+}
 
-exports["test decode"] = function(assert) {
-	for (var i = 0; i < testdata.length; i++) {
-		if (testdata[i].templateurl !== undefined) {
-			assert.strictEqual(geourl.decode(testdata[i].templateurl, testdata[i].coords),
-					testdata[i].url,
-					"Decode template URL "
-					+ testdata[i].templateurl
-					+ printDescription(testdata[i].templateurldesc));
-		}
+for (const testitem of testdata) {
+	if (testitem.templateurl !== undefined) {
+		test("decode " + testitem.templateurl + printDescription(testitem.templateurldesc), t => {
+			t.is(geourl.decode(testitem.templateurl, testitem.coords), testitem.url);
+		});
 	}
-};
-
-require("sdk/test").run(exports);
+}

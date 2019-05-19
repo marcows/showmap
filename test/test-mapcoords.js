@@ -1,13 +1,12 @@
 "use strict";
 
-var mapcoords = require("../lib/mapcoords.js");
+import test from "ava";
 
-var testdata = require("./testcoords.json");
+const mapcoords = require("../lib/mapcoords.js");
+const testdata = require("./testcoords.json");
 
-exports["test complete coords"] = function(assert) {
-	for (var i = 0; i < testdata.length; i++) {
-		assert.deepEqual(mapcoords.complete(testdata[i].partial), testdata[i].completed);
-	}
-};
-
-require("sdk/test").run(exports);
+for (const testitem of testdata) {
+	test("complete coords " + JSON.stringify(testitem.partial), t => {
+		t.deepEqual(mapcoords.complete(testitem.partial), testitem.completed);
+	});
+}

@@ -1,5 +1,8 @@
 # created by jpm
 *.xpi
 
+# created by npm
+/node_modules/
+
 # created by JSDoc
 /out/

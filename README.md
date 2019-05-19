@@ -38,6 +38,9 @@ and dropped the legacy APIs. Of course some day this Add-On
 should be converted to be usable with the latest Firefox version, but until
 then [Waterfox](https://waterfoxproject.org/) can be used for it.
 
+For unit testing, the [Node.js](https://nodejs.org/) based test runner
+[AVA](https://github.com/avajs/ava) is used.
+
 ### Running
 
 Run this Add-On in your browser:
@@ -48,10 +51,22 @@ jpm run
 
 ### Testing
 
+Install the dependencies locally:
+
+```
+npm install
+```
+
 Execute the unit tests:
 
 ```
-jpm test
+npm test
+```
+
+Alternatively execute unit tests with options passed to AVA:
+
+```
+npx ava [<options>...]
 ```
 
 ### Packaging
