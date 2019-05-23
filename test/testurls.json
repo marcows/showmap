@@ -192,6 +192,15 @@
 	}
 },
 {
+	"url": "https://kart.gulesider.no/?c=63,11.25&z=5",
+	"templateurl": "https://kart.gulesider.no/?c={latdegdec},{londegdec}&z={osmzoom}",
+	"coords": {
+		"osmzoom": 5,
+		"latdegdec": 63,
+		"londegdec": 11.25
+	}
+},
+{
 	"url": "https://tools.wmflabs.org/geohack/geohack.php?params=-27.11_N_-109.36_E_globe:",
 	"templateurl": "https://tools.wmflabs.org/geohack/geohack.php?params={latdegdec}_N_{londegdec}_E_globe:",
 	"coords": {
