@@ -183,6 +183,15 @@
 	}
 },
 {
+	"url": "https://www.mapquest.com/?center=38.5,-97.99999999999999&zoom=5&maptype=map",
+	"templateurl": "https://www.mapquest.com/?center={latdegdec},{londegdec}&zoom={osmzoom}&maptype=map",
+	"coords": {
+		"osmzoom": 5,
+		"latdegdec": 38.5,
+		"londegdec": -97.99999999999999
+	}
+},
+{
 	"url": "https://tools.wmflabs.org/geohack/geohack.php?params=-27.11_N_-109.36_E_globe:",
 	"templateurl": "https://tools.wmflabs.org/geohack/geohack.php?params={latdegdec}_N_{londegdec}_E_globe:",
 	"coords": {
