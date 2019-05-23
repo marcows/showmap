@@ -175,7 +175,7 @@
 },
 {
 	"url": "https://www.bing.com/maps?cp=-54.23653~-36.675849&lvl=10&style=h",
-	"templateurl": "https://www.bing.com/maps?cp={latdegdec}~{londegdec}&lvl=10&style=h",
+	"templateurl": "https://www.bing.com/maps?cp={latdegdec}~{londegdec}&lvl={osmzoom}&style=h",
 	"coords": {
 		"osmzoom": 10,
 		"latdegdec": -54.23653,
